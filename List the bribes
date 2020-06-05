@@ -1,0 +1,68 @@
+mysql> create table bribe ( 
+    -> id int auto_increment primary key,
+    -> name varchar(30) not null,
+    -> payment int
+    -> );
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> show bribe
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'bribe' at line 1
+mysql> insert into bribe (name, payment) values ('Gurbata', 128);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from bribe;
++----+---------+---------+
+| id | name    | payment |
++----+---------+---------+
+|  1 | Gurbata |     128 |
++----+---------+---------+
+1 row in set (0.00 sec)
+
+mysql> insert into bribe (name, payment) values ('Bartava', 719);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into bribe (name, payment) values ('Purtuju', 9419);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into bribe (name, payment) values ('Naurtoba', 4219);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from bribe;
++----+----------+---------+
+| id | name     | payment |
++----+----------+---------+
+|  1 | Gurbata  |     128 |
+|  2 | Bartava  |     719 |
+|  3 | Purtuju  |    9419 |
+|  4 | Naurtoba |    4219 |
++----+----------+---------+
+4 rows in set (0.00 sec)
+
+mysql> SELECT name,payment FROM bribe ORDER BY name;
++----------+---------+
+| name     | payment |
++----------+---------+
+| Bartava  |     719 |
+| Gurbata  |     128 |
+| Naurtoba |    4219 |
+| Purtuju  |    9419 |
++----------+---------+
+4 rows in set (0.00 sec)
+
+mysql> SELECT SUM(payment) FROM bribe;
++--------------+
+| SUM(payment) |
++--------------+
+|        14485 |
++--------------+
+1 row in set (0.02 sec)
+
+mysql> SELECT SUM(payment) AS TotalPayment FROM bribe;
++--------------+
+| TotalPayment |
++--------------+
+|        14485 |
++--------------+
+1 row in set (0.01 sec)
+
