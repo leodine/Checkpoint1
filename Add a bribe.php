@@ -16,7 +16,7 @@ $statement2 = $pdo->query($query2);
 <?
     // submit.php
 
-    $name = $nickname = $email = $password = "";
+    $name = $payment = "";
     $error = "";    
     $message = "";
     
